@@ -44,19 +44,18 @@ Rules v1.0
 - [ ] Transparent player column
 - [ ] Pending icon
 - [ ] Image text
-- [ ] Updated rules
-- [ ] Updated title
+- [x] Updated rules
+- [x] Updated title
 - [ ] Align day/night icon with title
 - [ ] UK date times
 - [ ] First, second, and third effects
 - [ ] Full history
-- [ ] Rules history list on hidden page
 - [ ] User login and post results
 - [ ] Need manual verification
 - [ ] Date posted?
 - [ ] Date completed?
 - [ ] Call image challenge?
-- [ ] Center icons
+- [x] Center icons
 - [ ] Remember mode in cookies?
 - [x] Add nice favicon
-- [ ] Add introduction
+- [x] Add introduction
