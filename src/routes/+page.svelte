@@ -39,7 +39,7 @@
 </script>
 
 <svelte:head>
-    <title>Speed Run Results</title>
+    <title>Bongo Bolt</title>
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -49,7 +49,7 @@
 <main>
     <div class="container">
         <div class="header">
-            <h1>Speed Run Results</h1>
+            <h1>Bongo Bolt Results</h1>
             <button class="dark-mode-toggle" on:click={toggleDarkMode}>
                 {#if $darkMode}
                     <i class="fas fa-sun"></i>

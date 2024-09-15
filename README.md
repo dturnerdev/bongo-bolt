@@ -18,9 +18,9 @@ This website is designed to track and display the performance of players in GeoG
 ## Purpose
 
 The primary goal of this project is to create a centralized platform for GeoGuessr enthusiasts to:
-1. Track their performance over time
-2. Compare their results with other players
-3. Access historical challenge data and rule sets
+1. Track their performance over time.
+2. Compare their results with other players.
+3. Access historical challenge data and rule sets.
 
 ## How It Works
 
@@ -48,7 +48,7 @@ Rules v1.0
 - [ ] Updated title
 - [ ] Align day/night icon with title
 - [ ] UK date times
-- [ ] First, second, third effects
+- [ ] First, second, and third effects
 - [ ] Full history
 - [ ] Rules history list on hidden page
 - [ ] User login and post results
@@ -58,3 +58,5 @@ Rules v1.0
 - [ ] Call image challenge?
 - [ ] Center icons
 - [ ] Remember mode in cookies?
+- [ ] Add nice favicon
+- [ ] Add introduction

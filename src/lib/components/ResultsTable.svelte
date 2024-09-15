@@ -82,7 +82,7 @@
                 <th class="center-column narrow-column">Image</th>
                 <th class="center-column narrow-column">Location</th>
                 <th class="center-column narrow-column">Verified</th>
-                <th class="center-column narrow-column">Rule</th>
+                <th class="center-column narrow-column">Rules</th>
             </tr>
         </thead>
         <tbody>
