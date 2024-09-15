@@ -58,5 +58,5 @@ Rules v1.0
 - [ ] Call image challenge?
 - [ ] Center icons
 - [ ] Remember mode in cookies?
-- [ ] Add nice favicon
+- [x] Add nice favicon
 - [ ] Add introduction
