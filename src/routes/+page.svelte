@@ -3,6 +3,7 @@
     import ResultsTable from "$lib/components/ResultsTable.svelte";
     import RulesSection from "$lib/components/RulesSection.svelte";
     import { writable } from "svelte/store";
+    import AboutSection from "$lib/components/AboutSection.svelte";
 
     const darkMode = writable(false);
 
@@ -58,6 +59,8 @@
                 {/if}
             </button>
         </div>
+
+        <AboutSection darkMode={$darkMode} />
 
         <RulesSection darkMode={$darkMode} />
 
