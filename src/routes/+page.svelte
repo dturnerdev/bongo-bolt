@@ -49,7 +49,7 @@
 <main>
     <div class="container">
         <div class="header">
-            <h1>Bongo Bolt Results</h1>
+            <h1>Bongo Bolt</h1>
             <button class="dark-mode-toggle" on:click={toggleDarkMode}>
                 {#if $darkMode}
                     <i class="fas fa-sun"></i>
