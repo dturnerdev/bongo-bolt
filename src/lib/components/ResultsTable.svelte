@@ -90,8 +90,8 @@
         <thead>
             <tr>
                 <th class="sticky-col">Player</th>
-                <th class="center-column narrow-column">Time</th>
-                <th class="center-column narrow-column">Date</th>
+                <th class="center-column narrow-column left-align">Time</th>
+                <th class="center-column narrow-column left-align">Date</th>
                 <th class="center-column narrow-column">Image</th>
                 <th class="center-column narrow-column">Location</th>
                 <th class="center-column narrow-column">Verified</th>
@@ -103,8 +103,10 @@
                 {@const { distanceString, exactDate } = formatDate(result.date)}
                 <tr class={index % 2 === 0 ? "even-row" : "odd-row"}>
                     <td class="sticky-col">{result.player}</td>
-                    <td class="center-column narrow-column">{result.time}</td>
-                    <td class="center-column narrow-column">
+                    <td class="center-column narrow-column left-align"
+                        >{result.time}</td
+                    >
+                    <td class="center-column narrow-column left-align">
                         <div class="date-container">
                             <span>{distanceString}</span>
                             <div class="tooltip">{exactDate}</div>
@@ -340,5 +342,9 @@
 
     .dark-mode td {
         border-bottom-color: #555;
+    }
+
+    .left-align {
+        text-align: left;
     }
 </style>
