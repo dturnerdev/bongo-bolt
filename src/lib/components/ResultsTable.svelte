@@ -3,6 +3,8 @@
     import { results } from "../stores/results";
     import ImageModal from "./ImageModal.svelte";
     import { formatDistanceToNow, format } from "date-fns";
+    // @ts-ignore
+    import type { SpeedRunResult } from "$lib/types/SpeedRunResult.ts";
 
     let selectedImage: string | null = null;
     let tableContainer: HTMLElement;
@@ -44,6 +46,13 @@
         selectedImage = imageUrl;
     }
 
+    function handleKeyDown(event: KeyboardEvent, imageUrl: string) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            handleImageClick(imageUrl);
+        }
+    }
+
     onMount(() => {
         tableContainer.style.cursor = "grab";
         tableContainer.addEventListener("mousedown", onMouseDown);
@@ -57,15 +66,19 @@
         };
     });
 
-    $: sortedResults = [...$results].sort((a, b) => {
-        const timeA = a.time
-            .split(":")
-            .reduce((acc, time) => 60 * acc + +time, 0);
-        const timeB = b.time
-            .split(":")
-            .reduce((acc, time) => 60 * acc + +time, 0);
-        return timeA - timeB;
-    });
+    $: sortedResults = [...$results].sort(
+        (a: SpeedRunResult, b: SpeedRunResult) => {
+            const parseTime = (time: string): number => {
+                const [minutes, seconds] = time.split(":");
+                return parseInt(minutes, 10) * 60 + parseFloat(seconds);
+            };
+
+            const timeA = parseTime(a.time);
+            const timeB = parseTime(b.time);
+
+            return timeA - timeB;
+        },
+    );
 </script>
 
 <div
@@ -97,13 +110,18 @@
                             <div class="tooltip">{exactDate}</div>
                         </div>
                     </td>
-                    <td class="center-column">
+                    <td class="center-column narrow-column">
                         <i
                             class="fas fa-image icon-button"
                             on:click={() => handleImageClick(result.imageUrl)}
+                            on:keydown={(event) =>
+                                handleKeyDown(event, result.imageUrl)}
+                            role="button"
+                            tabindex="0"
+                            aria-label="View image"
                         ></i>
                     </td>
-                    <td class="center-column">
+                    <td class="center-column narrow-column">
                         <a
                             href={result.locationUrl}
                             target="_blank"
@@ -260,18 +278,19 @@
         padding: 0 5px;
     }
 
-    .icon-button {
-        color: #007bff;
-    }
-
+    .icon-button,
     .icon-link {
-        color: #711af8;
-        text-decoration: none;
+        color: #000000;
     }
 
     .icon-button:hover,
     .icon-link:hover {
         opacity: 0.8;
+    }
+
+    .dark-mode .icon-button,
+    .dark-mode .icon-link {
+        color: #f4f4f4;
     }
 
     i {

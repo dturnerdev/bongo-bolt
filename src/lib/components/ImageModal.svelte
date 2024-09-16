@@ -3,22 +3,36 @@
     export let isOpen: boolean;
     export let onClose: () => void;
     export let darkMode: boolean;
+
+    function handleKeydown(event: KeyboardEvent) {
+        if (event.key === "Escape" && isOpen) {
+            onClose();
+        }
+    }
 </script>
 
 {#if isOpen}
-    <div class="modal-backdrop" on:click={onClose}>
-        <div
+    <div class="modal-backdrop" role="presentation">
+        <dialog
             class="modal-content"
             class:dark-mode={darkMode}
-            on:click|stopPropagation
+            open
+            aria-labelledby="modal-title"
         >
-            <button class="close-button" on:click={onClose}>
-                <i class="fas fa-times"></i>
+            <button
+                class="close-button"
+                on:click={onClose}
+                aria-label="Close modal"
+            >
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
+            <h2 id="modal-title" class="sr-only">Speed Run Result Image</h2>
             <img src={imageUrl} alt="Speed run result" />
-        </div>
+        </dialog>
     </div>
 {/if}
+
+<svelte:window on:keydown={handleKeydown} />
 
 <style>
     .modal-backdrop {
@@ -36,7 +50,7 @@
 
     .modal-content {
         background-color: white;
-        padding: 10px;
+        padding: 5px;
         border-radius: 5px;
         max-width: 90%;
         max-height: 90%;
@@ -45,7 +59,7 @@
     }
 
     .modal-content.dark-mode {
-        background-color: #333;
+        background-color: white;
     }
 
     img {
@@ -82,5 +96,26 @@
 
     .dark-mode .close-button:hover {
         background-color: #e17055;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    dialog.modal-content {
+        border: none;
+        border-radius: 0.5em;
+    }
+
+    dialog.modal-content::backdrop {
+        background: rgba(0, 0, 0, 0.5);
     }
 </style>
