@@ -95,7 +95,7 @@
                 <th class="center-column narrow-column">Image</th>
                 <th class="center-column narrow-column">Location</th>
                 <th class="center-column narrow-column">Verified</th>
-                <th class="center-column narrow-column">Rules</th>
+                <th class="center-column narrow-column left-align">Rules</th>
             </tr>
         </thead>
         <tbody>
@@ -148,7 +148,7 @@
                             {/if}
                         </div>
                     </td>
-                    <td class="center-column">{result.rule}</td>
+                    <td class="center-column left-align">{result.rule}</td>
                 </tr>
             {/each}
         </tbody>
